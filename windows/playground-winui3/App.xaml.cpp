@@ -29,7 +29,7 @@ App::App()
     InstanceSettings().UseFastRefresh(false);
 #else
     JavaScriptBundleFile(L"index");
-    InstanceSettings().UseWebDebugger(true);
+    InstanceSettings().UseDirectDebugger(true);
     InstanceSettings().UseFastRefresh(true);
 #endif
 
@@ -42,6 +42,9 @@ App::App()
     RegisterAutolinkedNativeModulePackages(PackageProviders()); // Includes any autolinked modules
 
     PackageProviders().Append(make<ReactPackageProvider>()); // Includes all modules in this project
+
+    // TODO: why is this needed?
+    Host().ReloadInstance();
 
     InitializeComponent();
 

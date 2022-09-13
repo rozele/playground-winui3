@@ -18,6 +18,5 @@ namespace winrt::playground_winui3::implementation
         InitializeComponent();
         auto app = Application::Current().as<App>();
         ReactRootView().ReactNativeHost(app->Host());
-        ReactRootView().ReloadView();
     }
 }
